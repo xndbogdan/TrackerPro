@@ -1,4 +1,4 @@
-# Inertia-template
+# Inertia Template
 
 ## Installation
 
