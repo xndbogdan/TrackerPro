@@ -1,16 +1,12 @@
-# Ping CRM
-
-A demo application to illustrate how Inertia.js works.
-
-![](https://raw.githubusercontent.com/inertiajs/pingcrm/master/screenshot.png)
+# Inertia-template
 
 ## Installation
 
 Clone the repo locally:
 
 ```sh
-git clone https://github.com/inertiajs/pingcrm.git pingcrm
-cd pingcrm
+git clone https://github.com/inertiajs/inertia-template.git
+cd inertia-template
 ```
 
 Install PHP dependencies:
@@ -61,14 +57,14 @@ Run database seeder:
 php artisan db:seed
 ```
 
-You're ready to go! Visit Ping CRM in your browser, and login with:
+You're ready to go! Login with:
 
 - **Username:** johndoe@example.com
 - **Password:** secret
 
 ## Running tests
 
-To run the Ping CRM tests, run:
+To run the tests, run:
 
 ```
 phpunit
