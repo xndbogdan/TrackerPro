@@ -1,21 +1,15 @@
 <template>
     <div>
-        <h1 class="mb-4 font-bold text-3xl">Dashboard</h1>
-        <p class="mb-2 leading-normal">
-            Hey there! Welcome to ProTracker, a demo app designed to help illustrate how <a
-            class="text-indigo underline hover:text-orange-dark" href="https://github.com/inertiajs"
-        >Inertia.js</a>
-            works.
-        </p>
-        <div class="w-full flex items-center">
+        <h1 class="mb-8 font-bold text-4xl">Dashboard</h1>
+        <div class="w-full flex items-center flex-wrap">
             <button class="bg-indigo-700 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded"
                     @click="showModal = !showModal"
             >
                 New Task
             </button>
             <p class="ml-5">Tasks: <span v-html="$page.auth.user.tasks.length"/></p>
-            <div v-if="$page.auth.user.is_admin">
-                <label class="ml-5" for="viewAll">View all tasks</label>
+            <div v-if="$page.auth.user.is_admin" class="w-full md:w-auto md:ml-5 mt-3 md:mt-0">
+                <label for="viewAll">View all tasks</label>
                 <input type="checkbox" v-model="viewAll" id="viewAll" class="ml-1"/>
             </div>
 
