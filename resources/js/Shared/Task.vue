@@ -12,7 +12,7 @@
             <p class="mt-4" v-html="task.description" style="white-space: pre-wrap;"></p>
             <div class="flex flex-row justify-between">
                 <p class="mt-4">Status: {{task.state}}</p>
-                <p class="mt-4" v-if="viewAll">Belongs to: {{task.username}}</p>
+                <p class="mt-4" v-if="viewAll">Belongs to: {{task.username}} <span v-if="task.user_id === $page.auth.user.id">(You)</span></p>
             </div>
 
         </div>

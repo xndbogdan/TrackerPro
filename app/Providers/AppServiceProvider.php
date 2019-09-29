@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Models\Task;
 use Inertia\Inertia;
 use League\Glide\Server;
 use Carbon\CarbonImmutable;
@@ -42,12 +43,16 @@ class AppServiceProvider extends ServiceProvider
                         'id' => Auth::user()->id,
                         'first_name' => Auth::user()->first_name,
                         'last_name' => Auth::user()->last_name,
+                        'is_admin' => Auth::user()->is_admin,
                         'email' => Auth::user()->email,
                         'tasks' => Auth::user()->tasks
                     ] : null,
                 ];
             },
-            'dashboard' => function() {
+            'tasks' => function () {
+                return Auth::user() ? (Auth::user()->is_admin ? Task::all() : null) : null;
+            },
+            'dashboard' => function () {
                 return [
                     'showModal' => false,
                 ];
@@ -57,13 +62,13 @@ class AppServiceProvider extends ServiceProvider
                     'success' => Session::get('success'),
                 ];
             },
-            'toast' => function() {
+            'toast' => function () {
                 return Session::get('toast');
             },
             'errors' => function () {
                 return Session::get('errors')
                     ? Session::get('errors')->getBag('default')->getMessages()
-                    : (object) [];
+                    : (object)[];
             },
         ]);
     }
@@ -83,7 +88,8 @@ class AppServiceProvider extends ServiceProvider
     protected function registerLengthAwarePaginator()
     {
         $this->app->bind(LengthAwarePaginator::class, function ($app, $values) {
-            return new class(...array_values($values)) extends LengthAwarePaginator {
+            return new class(...array_values($values)) extends LengthAwarePaginator
+            {
                 public function only(...$attributes)
                 {
                     return $this->transform(function ($item) use ($attributes) {
