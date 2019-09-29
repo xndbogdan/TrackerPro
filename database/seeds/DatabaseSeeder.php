@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'John',
             'last_name' => 'Doe',
             'email' => 'johndoe@example.com',
+            'is_admin' => 1,
             'password' => Hash::make('secret1234')
         ]);
     }

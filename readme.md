@@ -1,4 +1,4 @@
-# Inertia Template
+# TrackerPro
 
 ## Installation
 
@@ -60,12 +60,7 @@ php artisan db:seed
 You're ready to go! Login with:
 
 - **Username:** johndoe@example.com
-- **Password:** secret
+- **Password:** secret1234
 
-## Running tests
+*This user will also be an admin*
 
-To run the tests, run:
-
-```
-phpunit
-```
