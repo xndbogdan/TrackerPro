@@ -1,26 +1,22 @@
 <template>
   <div>
-    <div class="mb-4">
-      <inertia-link class="flex items-center group py-3" :href="route('dashboard')">
-        <icon name="dashboard" class="w-4 h-4 mr-2" :class="isUrl('') ? 'fill-white' : 'fill-indigo-light group-hover:fill-white'" />
-        <div :class="isUrl('') ? 'text-white' : 'text-indigo-lighter group-hover:text-white'">Dashboard</div>
-      </inertia-link>
-    </div>
-    <div class="mb-4">
-      <inertia-link class="flex items-center group py-3" :href="route('reports')">
-        <icon name="printer" class="w-4 h-4 mr-2" :class="isUrl('reports') ? 'fill-white' : 'fill-indigo-light group-hover:fill-white'" />
-        <div :class="isUrl('reports') ? 'text-white' : 'text-indigo-lighter group-hover:text-white'">Reports</div>
-      </inertia-link>
+<!--    <div class="mb-4">-->
+<!--      <inertia-link class="block px-6 py-2 hover:bg-indigo hover:text-white" :href="route('users.edit', $page.auth.user.id)">My Profile</inertia-link>-->
+<!--    </div>-->
+<!--    <div class="mb-4">-->
+<!--      <inertia-link class="block px-6 py-2 hover:bg-indigo hover:text-white" :href="route('users')">Manage Users</inertia-link>-->
+<!--    </div>-->
+    <div class="mb-0">
+      <inertia-link class="block px-6 py-2 hover:bg-indigo-700 hover:text-white" :href="route('logout')" method="post">Logout</inertia-link>
     </div>
   </div>
 </template>
 
 <script>
-import Icon from '@/Shared/Icon'
 
 export default {
   components: {
-    Icon,
+
   },
   methods: {
     isUrl(...urls) {

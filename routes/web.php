@@ -31,3 +31,5 @@ Route::put('users/{user}/restore')->name('users.restore')->uses('UsersController
 // Images
 Route::get('/img/{path}', 'ImagesController@show')->where('path', '.*');
 
+// Tasks
+Route::post('tasks.add', 'TaskController@addTask')->name('tasks.add');

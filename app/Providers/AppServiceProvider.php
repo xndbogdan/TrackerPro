@@ -43,7 +43,13 @@ class AppServiceProvider extends ServiceProvider
                         'first_name' => Auth::user()->first_name,
                         'last_name' => Auth::user()->last_name,
                         'email' => Auth::user()->email,
+                        'tasks' => Auth::user()->tasks
                     ] : null,
+                ];
+            },
+            'dashboard' => function() {
+                return [
+                    'showModal' => false,
                 ];
             },
             'flash' => function () {

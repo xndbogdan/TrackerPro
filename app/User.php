@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Models\Task;
 use League\Glide\Server;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
@@ -36,6 +37,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         if ($this->photo_path) {
             return URL::to(App::make(Server::class)->fromPath($this->photo_path, $attributes));
         }
+    }
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
     }
 
     public function scopeOrderByName($query)
