@@ -1,11 +1,8 @@
 <template>
-    <div class="p-6 bg-indigo-darker min-h-screen flex justify-center items-center">
+    <div class="p-6 bg-indigo-900 min-h-screen flex justify-center items-center">
         <div class="w-full max-w-sm">
-            <div class="flex flex-col align-middle">
-                <logo class="block mx-auto w-full max-w-xs fill-white" height="50"/>
-                <span class="text-center mt-3 text-2xl">
-                TrackerPro
-            </span>
+            <div class="flex justify-center">
+                <logo/>
             </div>
 
             <form class="mt-8 bg-white rounded-lg shadow-lg overflow-hidden" @submit.prevent="submit">

@@ -33,3 +33,5 @@ Route::get('/img/{path}', 'ImagesController@show')->where('path', '.*');
 
 // Tasks
 Route::post('tasks.add', 'TaskController@addTask')->name('tasks.add');
+Route::post('tasks.delete', 'TaskController@deleteTask')->name('tasks.delete');
+Route::post('tasks.edit', 'TaskController@editTask')->name('tasks.edit');

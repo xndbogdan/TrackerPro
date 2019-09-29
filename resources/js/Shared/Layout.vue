@@ -3,27 +3,27 @@
     <portal-target name="dropdown" slim />
     <div class="flex flex-col">
       <div class="min-h-screen flex flex-col" @click="hideDropdownMenus">
-        <div class="flex border-b justify-between items-center">
-          <div class="bg-indigo-darkest w-full md:flex-no-shrink md:w-56 px-6 py-4 flex items-center justify-between md:justify-center">
-            <inertia-link class="mt-1" href="/">
-              <logo class="fill-white" width="25" height="25" />
+        <div class="bg-indigo-900 flex border-b justify-between items-center">
+          <div class="w-full md:flex-no-shrink md:w-56 px-6 py-4 flex items-center justify-between md:justify-center">
+            <inertia-link href="/">
+              <logo/>
             </inertia-link>
             <dropdown class="md:hidden" placement="bottom-end">
-              <svg class="fill-white w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
+              <svg class="fill-current text-white w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
               <div slot="dropdown" class="mt-2 px-8 py-4 shadow-lg bg-indigo-darker rounded">
                 <main-menu />
               </div>
             </dropdown>
           </div>
-          <div class="hidden md:block bg-white p-4 md:py-0 md:px-12 text-sm md:text-base flex justify-between items-center">
-            <div class="mt-1 mr-4">{{ $page.auth.user.name }}</div>
-            <dropdown class="mt-1" placement="bottom-end">
+          <div class="hidden md:block text-white p-4 md:py-0 md:px-12 text-sm md:text-base flex justify-between items-center">
+            <div class="mr-4">{{ $page.auth.user.name }}</div>
+            <dropdown placement="bottom-end">
               <div class="flex items-center cursor-pointer select-none group">
                 <div class="text-grey-darkest group-hover:text-indigo-dark focus:text-indigo-dark mr-1 whitespace-no-wrap">
                   <span>{{ $page.auth.user.first_name }}</span>
                   <span class="hidden md:inline">{{ $page.auth.user.last_name }}</span>
                 </div>
-                <icon class="w-5 h-5 group-hover:fill-indigo-dark fill-grey-darkest focus:fill-indigo-dark" name="cheveron-down" />
+                <icon class="w-5 h-5 text-white fill-current " name="cheveron-down" />
               </div>
               <div slot="dropdown" class="mt-2 py-2 shadow-lg bg-white rounded text-sm">
 <!--                <inertia-link class="block px-6 py-2 hover:bg-indigo-700 hover:text-white" :href="route('users.edit', $page.auth.user.id)">My Profile</inertia-link>-->
@@ -78,6 +78,8 @@ export default {
         document.title = title ? `${title} | TrackerPro` : 'TrackerPro'
       },
     },
+  },
+  updated() {
   },
   methods: {
     hideDropdownMenus() {

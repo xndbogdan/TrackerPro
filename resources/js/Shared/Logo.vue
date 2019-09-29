@@ -1,27 +1,29 @@
 <template>
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         viewBox="0 0 431.998 431.998" style="width:100%; height:100%;enable-background:new 0 0 431.998 431.998;" xml:space="preserve">
+    <div class="flex flex-row items-center">
+        <svg class="fill-current text-white w-6 h-6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 431.998 431.998" style="enable-background:new 0 0 431.998 431.998;"
+             xml:space="preserve">
 <g>
 	<g>
 		<rect x="80.102" y="192" width="192" height="16"/>
 	</g>
 </g>
-        <g>
+            <g>
 	<g>
 		<polygon points="80.102,239.998 80.102,255.998 235.816,255.998 251.816,239.998 		"/>
 	</g>
 </g>
-        <g>
+            <g>
 	<g>
 		<polygon points="80.102,287.998 80.102,303.998 187.813,303.998 203.814,287.998 		"/>
 	</g>
 </g>
-        <g>
+            <g>
 	<g>
 		<rect x="80.102" y="336" width="80" height="16"/>
 	</g>
 </g>
-        <g>
+            <g>
 	<g>
 		<path d="M411.213,171.106l-22.628-22.626c-6.245-6.245-16.382-6.246-22.627-0.001c-57.747,57.747-115.648,115.648-173.855,173.854
 			c0,27.687,0,21.689,0,45.662c38.518,0,28.774,0.018,44.915-0.068c8.351-8.351,45.207-45.206,83.085-83.083v115.154
@@ -38,11 +40,14 @@
 			l11.314-11.314l22.628,22.627L365.957,216.36z M388.585,193.734l-22.628-22.628l11.314-11.313l22.628,22.627L388.585,193.734z"/>
 	</g>
 </g>
-<g>
+            <g>
 	<g>
 		<circle cx="176.342" cy="48" r="12"/>
 	</g>
 </g>
 </svg>
+        <p class="ml-1 text-white text-2xl">TrackerPro</p>
+    </div>
+
 
 </template>

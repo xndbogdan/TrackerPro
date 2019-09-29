@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class TaskController extends Controller
 {
@@ -65,6 +66,31 @@ class TaskController extends Controller
             $task = $this->create($data);
         } catch(\Exception $ex){
             Log::error($ex->getMessage());
+        }
+        return redirect()->back();
+    }
+
+    public function deleteTask(Request $request){
+        $task = Task::find($request->id);
+        if($task->user_id != Auth::user()->id || !Auth::user()->is_admin){
+            $task->delete();
+            $request->session()->flash('toast', "Task failed sucessfully");
+        } else {
+            $request->session()->flash('toast', "This is not your task, so you cannot delete it");
+        }
+        return redirect()->back();
+    }
+
+    public function editTask(Request $request){
+        $task = Task::find($request->id);
+        if($task->user_id != Auth::user()->id || !Auth::user()->is_admin){
+            $task->name = $request->name;
+            $task->description = $request->description;
+            $task->status = $request->status;
+            $task->save();
+            $request->session()->flash('toast', "Task edited sucessfully");
+        } else {
+            $request->session()->flash('toast', "This is not your task, so you cannot edit it");
         }
         return redirect()->back();
     }

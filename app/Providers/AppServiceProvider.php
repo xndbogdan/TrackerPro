@@ -57,6 +57,9 @@ class AppServiceProvider extends ServiceProvider
                     'success' => Session::get('success'),
                 ];
             },
+            'toast' => function() {
+                return Session::get('toast');
+            },
             'errors' => function () {
                 return Session::get('errors')
                     ? Session::get('errors')->getBag('default')->getMessages()

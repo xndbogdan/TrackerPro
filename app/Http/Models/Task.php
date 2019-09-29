@@ -23,12 +23,16 @@ class Task extends Model
      * @var bool
      */
     public $timestamps = true;
-    protected $appends = ['state'];
+    protected $appends = ['state', 'username'];
     public function getStateAttribute (){
         return self::STATE[$this->status];
     }
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function getUsernameAttribute(){
+        return $this->user->name;
     }
 }

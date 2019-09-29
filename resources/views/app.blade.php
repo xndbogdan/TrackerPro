@@ -8,8 +8,7 @@
     @routes
 </head>
 <body class="font-sans leading-none text-grey-darkest antialiased">
-
 @inertia
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </body>
 </html>

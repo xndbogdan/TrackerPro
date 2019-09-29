@@ -11,34 +11,33 @@
     <div class="w-full">
         <transition name="fade">
             <div v-if="showModal" class="fixed top-0 left-0 w-full h-full justify-center flex bg-indigo-700 items-center">
-                <form class="my-4 align-middle container" @submit.prevent="newTask">
-                    <div class="w-100 flex justify-between">
+                <form class="my-4 align-middle container lg:mx-48 xl:mx-56" @submit.prevent="newTask">
+                    <div class="w-100 flex justify-between items-center">
                         <p class="text-white text-3xl">New Task</p>
-                        <p class="text-white text-3xl cursor-pointer px-5" @click="showModal = !showModal">X</p>
+                        <p class="text-white text-3xl cursor-pointer pl-1 py-1 hover:text-gray-300" @click="showModal = !showModal">&times;</p>
                     </div>
 
-                    <div class="my-5 p-5 rounded bg-white">
-                        <text-input :errors="$page.errors.name" v-model="form.name" label="Name" class="mb-3" type="text" autofocus autocapitalize="off"/>
-                        <TextareaInput :errors="$page.errors.description"  v-model="form.description" label="Description" class="mb-3" type="text" autofocus autocapitalize="off"/>
-                        <select-input :errors="$page.errors.status " v-model="form.status" label="Status">
+                    <div class="my-3 p-5 rounded bg-white flex flex-wrap -mx-2">
+                        <text-input :errors="$page.errors.name" v-model="form.name" label="Name" class="mb-3 w-full lg:w-1/2 px-2" type="text" autofocus autocapitalize="off"/>
+                        <select-input :errors="$page.errors.status " v-model="form.status" label="Status" class="w-full lg:w-1/2 px-2">
                             <option disabled selected value="">Status</option>
                             <option value="0">To do</option>
                             <option value="1">Doing</option>
                             <option value="2">Done</option>
                             <option value="3">Aborted</option>
                         </select-input>
-                        <div class="pt-4 bg-grey-lightest flex justify-end items-end">
+                        <TextareaInput :errors="$page.errors.description"  v-model="form.description" label="Description" class="mt-3 px-2 w-full" type="text" autofocus autocapitalize="off"/>
+                        <div class="pt-4 bg-grey-lightest flex justify-end items-end px-2 w-full">
                             <loading-button :loading="sending" class="btn-indigo" type="submit">Save</loading-button>
                         </div>
                     </div>
 
                 </form>
             </div>
-
         </transition>
     </div>
-    <div>
-        <task v-for="task in $page.auth.user.tasks" :key="task.id" :task="task" ></task>
+    <div class="mt-5">
+        <task v-for="task in $page.auth.user.tasks" :key="task.id" :task="task" :view-all="viewAll"></task>
     </div>
   </layout>
 </template>
@@ -62,6 +61,7 @@ export default {
   data: () => ({
     showModal: false,
     sending: false,
+    viewAll: false,
     form: {
       name: null,
       description: null,
