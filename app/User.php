@@ -20,10 +20,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'owner' => 'boolean',
     ];
 
-    public function account()
-    {
-        return $this->belongsTo(Account::class);
-    }
 
     public function getNameAttribute()
     {
@@ -32,7 +28,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function setPasswordAttribute($password)
     {
-        $this->attributes['password'] = Hash::make($password);
+            $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
     }
 
     public function photoUrl(array $attributes)
