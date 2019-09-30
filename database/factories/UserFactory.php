@@ -18,8 +18,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'password' => 'secret',
-        'remember_token' => str_random(10),
-        'owner' => false,
+        'password' => 'secret1234',
+        'is_admin' => 1,
+
     ];
 });
