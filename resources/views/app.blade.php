@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @routes
 </head>
 <body class="font-sans leading-none text-grey-darkest antialiased">
 @inertia
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </body>
 </html>
