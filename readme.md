@@ -5,7 +5,7 @@
 Clone the repo locally:
 
 ```sh
-git clone https://github.com/inertiajs/inertia-template.git
+git clone https://github.com/xndbogdan/TrackerPro.git
 cd inertia-template
 ```
 
