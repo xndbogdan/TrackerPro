@@ -72,7 +72,7 @@ class TaskController extends Controller
 
     public function deleteTask(Request $request){
         $task = Task::find($request->id);
-        if($task->user_id != Auth::user()->id || !Auth::user()->is_admin){
+        if($task->user_id == Auth::user()->id || Auth::user()->is_admin){
             $task->delete();
             $request->session()->flash('toast', "Task failed sucessfully");
         } else {
@@ -83,7 +83,7 @@ class TaskController extends Controller
 
     public function editTask(Request $request){
         $task = Task::find($request->id);
-        if($task->user_id != Auth::user()->id || !Auth::user()->is_admin){
+        if($task->user_id == Auth::user()->id || Auth::user()->is_admin){
             $task->name = $request->name;
             $task->description = $request->description;
             $task->status = $request->status;
