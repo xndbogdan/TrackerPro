@@ -6,7 +6,7 @@ Clone the repo locally:
 
 ```sh
 git clone https://github.com/xndbogdan/TrackerPro.git
-cd inertia-template
+cd trackerpro
 ```
 
 Install PHP dependencies:
