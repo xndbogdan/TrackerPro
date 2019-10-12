@@ -22,16 +22,26 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     ];
 
 
+    /**
+     * @return string
+     */
     public function getNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;
     }
 
+    /**
+     * @param $password
+     */
     public function setPasswordAttribute($password)
     {
             $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
     }
 
+    /**
+     * @param array $attributes
+     * @return string
+     */
     public function photoUrl(array $attributes)
     {
         if ($this->photo_path) {
@@ -39,15 +49,26 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         }
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function tasks(){
         return $this->hasMany(Task::class);
     }
 
+    /**
+     * @param $query
+     */
     public function scopeOrderByName($query)
     {
         $query->orderBy('last_name')->orderBy('first_name');
     }
 
+    /**
+     * @param $query
+     * @param $role
+     * @return mixed
+     */
     public function scopeWhereRole($query, $role)
     {
         switch ($role) {
@@ -56,6 +77,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         }
     }
 
+    /**
+     * @param $query
+     * @param array $filters
+     */
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {

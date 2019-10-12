@@ -53,6 +53,10 @@ class TaskController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addTask(Request $request){
         $data = $request->all();
         $validator = $this->validator($data);
@@ -70,6 +74,10 @@ class TaskController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function deleteTask(Request $request){
         $task = Task::find($request->id);
         if($task->user_id == Auth::user()->id || Auth::user()->is_admin){
@@ -81,6 +89,10 @@ class TaskController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function editTask(Request $request){
         $task = Task::find($request->id);
         if($task->user_id == Auth::user()->id || Auth::user()->is_admin){

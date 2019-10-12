@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Redirect;
 
 class UsersController extends Controller
 {
+    /**
+     * @return \Inertia\Response
+     */
     public function index()
     {
         return Inertia::render('Users/Index', [
@@ -32,11 +35,17 @@ class UsersController extends Controller
         ]);
     }
 
+    /**
+     * @return \Inertia\Response
+     */
     public function create()
     {
         return Inertia::render('Users/Create');
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         Request::validate([
@@ -60,6 +69,10 @@ class UsersController extends Controller
         return Redirect::route('users')->with('success', 'User created.');
     }
 
+    /**
+     * @param User $user
+     * @return \Inertia\Response
+     */
     public function edit(User $user)
     {
         return Inertia::render('Users/Edit', [
@@ -75,6 +88,10 @@ class UsersController extends Controller
         ]);
     }
 
+    /**
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(User $user)
     {
         Request::validate([
@@ -99,6 +116,11 @@ class UsersController extends Controller
         return Redirect::route('users.edit', $user)->with('success', 'User updated.');
     }
 
+    /**
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
     public function destroy(User $user)
     {
         $user->delete();
@@ -106,6 +128,10 @@ class UsersController extends Controller
         return Redirect::route('users.edit', $user)->with('success', 'User deleted.');
     }
 
+    /**
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function restore(User $user)
     {
         $user->restore();
